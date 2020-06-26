@@ -51,7 +51,7 @@ if [ ! -f /tmp/wl128x-nvs.bin ]; then
 fi
 
 if [ -f /etc/udev/rules.d/70-persistent-net.rules ]; then
-    echo "Removeing stale persistent network names"
+    echo "Removing stale persistent network names"
     sed -i '/${CURRENTMAC:19}/d' /etc/udev/rules.d/70-persistent-net.rules
     sed -i '/wlan0/d' /etc/udev/rules.d/70-persistent-net.rules
     sed -i '/wlan1/d' /etc/udev/rules.d/70-persistent-net.rules
