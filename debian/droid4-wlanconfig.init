@@ -1,0 +1,17 @@
+#!/sbin/openrc-run
+
+description="Maserati Wifi calibration"
+
+depend() {
+	need udev
+}
+
+start() {
+	ebegin "Calibrating Wifi"
+	/usr/sbin/maserati-calibrate || eend $?
+	rc-update del droid4-wlanconfig || return 0
+}
+
+stop() {
+	return 0
+}
