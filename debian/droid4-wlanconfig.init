@@ -8,8 +8,10 @@ depend() {
 
 start() {
 	ebegin "Calibrating Wifi"
-	/usr/sbin/maserati-calibrate || eend $?
-	rc-update del droid4-wlanconfig || return 0
+	if /usr/bin/maserati-calibrate; then
+		rc-update del droid4-wlanconfig
+	fi
+	eend $?
 }
 
 stop() {
