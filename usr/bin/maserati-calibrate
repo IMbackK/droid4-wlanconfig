@@ -2,8 +2,8 @@
 
 INIDIR=/usr/share/ti-utils/
 
-mkdir /tmp/pds
-mount -o ro /dev/mmcblk1p7 /tmp/pds
+mkdir -p /tmp/pds
+mount -o ro -L "pds" /tmp/pds
 if [ $? -ne 0 ]; then
     echo "Error mounting pds"
     rm -r /tmp/pds
